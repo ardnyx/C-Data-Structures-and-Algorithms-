@@ -112,7 +112,8 @@ int recursive_max_value(struct Node *node) {
 
     if (temp > node->data)
         return temp;
-    else return node->data;
+    else 
+        return node->data;
 }
 
 
