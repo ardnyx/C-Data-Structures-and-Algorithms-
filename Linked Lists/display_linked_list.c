@@ -116,6 +116,26 @@ int recursive_max_value(struct Node *node) {
         return node->data;
 }
 
+void wrong_search(struct Node *node, int key) { // own implementation of search
+    while (node->data != key) {
+        node = node->next;
+        if (node == NULL)
+            break;
+    }
+    if (key)
+        printf("Key %d was found", key);
+    else
+        printf("Key %d not found", key);
+}
+
+struct Node *search(struct Node *node, int key) { // correct implementation of the
+    while (node != NULL) {                        // search function
+        if (key == node->data)
+            return(node);
+        node = node->next;
+    }
+    return NULL;
+}
 
 int main() {
     int A[] = {2,5,9,4,2,9};
@@ -140,5 +160,7 @@ int main() {
 
     int maximum_value = max_value(first_node);
     int r_maximum_value = recursive_max_value(first_node);
+
+    search(first_node, 0);
     return 0;
 }
